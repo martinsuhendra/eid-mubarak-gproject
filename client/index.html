@@ -10,6 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style/style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -17,11 +18,40 @@
   </head>
   <body>
     <div id="app">
-
-
-
-
-        
+      <nav>
+        <h1 class="brand"></h1>
+        <ul>
+          <li>
+            <a
+              style=" text-decoration: none;color: white"
+              href="#"
+              v-if="isLogin"
+              @click.prevent="fetchArticles"
+              >Blogs</a
+            >
+          </li>
+          <li>
+            <a style=" text-decoration: none;color: white" href="#">About</a>
+          </li>
+          <li>
+            <a
+              style=" text-decoration: none;color: white"
+              href="#"
+              v-on:click.prevent="showRegister"
+              >Sholat Schedule</a
+            >
+          </li>
+          <li>
+            <a
+              style=" text-decoration: none;color: white"
+              href="#"
+              v-if="!isLogin"
+              v-on:click.prevent="showLogin"
+              >Get Free Card</a
+            >
+          </li>
+        </ul>
+      </nav>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
