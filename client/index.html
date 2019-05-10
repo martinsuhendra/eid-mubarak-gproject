@@ -62,56 +62,11 @@
               href="#"
               data-toggle="modal"
               data-target="#exampleModalLong"
-              >About</a
+              >Kartu<span style="color:crimson">Ilahi</span></a
             >
           </li>
 
           <!--About Modal-->
-          <div
-            class="modal fade"
-            id="exampleModalLong"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Idul fitri adalah cahaya harapan Izinkan untuk rasakan
-                  sinarnya hadir untuk kita Tempat yang membuat jarak tidak
-                  dapat berucap kata-kata secara langsung Hanya yang bisa
-                  diucapkan melalui kirim pesan Maafkan bila memang selama ini
-                  banyak salah Dengan adanya kiriman ucapan pesan ini, kami
-                  sekeluarga memberi ucapan Selamat Hari Raya Idul Fitri.
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <transition name="slide-fade" mode="out-in">
             <li class="dropdown" v-if="!isLogin" key="false">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown"
@@ -177,7 +132,7 @@
               <br>
 
               <!-- DROP DOWN FONT -->
-              <h4>2) Please choose or adjust your style</h4>
+              <h5>2) Please choose or adjust your style</h5>
               <label>Select Style</label>
               <select v-model="fontStyle" class="custom-select">
                 <option value="'Aref Ruqaa', serif" selected>Aref Ruqaa (Arabic)</option>
@@ -262,7 +217,11 @@
       <div id="home" v-if="page == 'home'">
         <div class="bg-image"></div>
         <div class="bg-text">
-          <h1 class="py-5">Ramadhan Kareem</h1>
+          <p class="py-5" style="letter-spacing:1px;font-size:12px;"><i><q>Andai jemari tak sempat berjabat.
+              Jika raga tak bisa bersua.
+              Bila Ada kata membekas luka.
+              Semoga pintu maaf masih terbuka.</q><br><br>
+              Selamat Idul Fitri 1440 H</i></p>
           <transition name="slide-fade">
             <button
               @click.prevent="showCard"
