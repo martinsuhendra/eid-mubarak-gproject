@@ -13,12 +13,18 @@
     <link rel="stylesheet" href="style/style.css">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Crimson+Text|Pacifico"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
     #canvas {
         display: flex;
         justify-content: flex-end;
-        background-image: url('');
+        background-image: url("");
         background-size: cover;
         background-position: center;
         height: auto;
@@ -26,14 +32,17 @@
         min-width: 400px;
         min-height: 300px;
         border: 1px solid #000;
-    }
-    #recipient {
-      text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black, -1px -1px 0 black, 1px 0px 0 black, 0px 1px 0 black, -1px 0px 0 black, 0px -1px 0 black, -1px -1px 0px rgba(0,0,0,0), 8px 8px 8px #CDFF3C, -8px -8px 8px #CDFF3C;
-      color: white;
-    }
-    #message{
-      text-shadow: 8px 8px 8px #CDFF3C, -8px -8px 8px #CDFF3C;
-    }
+      }
+      #recipient {
+        text-shadow: 1px 1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+          -1px -1px 0 black, 1px 0px 0 black, 0px 1px 0 black, -1px 0px 0 black,
+          0px -1px 0 black, -1px -1px 0px rgba(0, 0, 0, 0), 8px 8px 8px #cdff3c,
+          -8px -8px 8px #cdff3c;
+        color: white;
+      }
+      #message {
+        text-shadow: 8px 8px 8px #cdff3c, -8px -8px 8px #cdff3c;
+      }
     </style>
     <title>Document</title>
   </head>
@@ -42,19 +51,59 @@
       <nav>
         <h1 class="brand"></h1>
         <ul>
-            <a style=" text-decoration: none;color: white" href="#">About</a>
-          </li>
           <li>
-            <a
-              style=" text-decoration: none;color: white"
-              href="#"
-              v-on:click.prevent="showRegister"
-              >Sholat Schedule</a
+            <a class="ml-5" style=" text-decoration: none;color: white" href="#"
+              >About</a
             >
           </li>
-          <li>
-            <a>Get Free Card</a>
-          </li>
+          <transition name="slide-fade" mode="out-in">
+            <li class="dropdown" v-if="!isLogin" key="false">
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown"
+                ><span class="glyphicon glyphicon-log-in"></span> Login</a
+              >
+              <div
+                class="dropdown-menu"
+                style="padding: 15px; padding-bottom: 10px;"
+              >
+                <form
+                  class="form-horizontal"
+                  method="post"
+                  accept-charset="UTF-8"
+                >
+                  <input
+                    id="sp_uname"
+                    class="form-control login"
+                    type="text"
+                    name="sp_uname"
+                    placeholder="Username.."
+                  />
+                  <input
+                    id="sp_pass"
+                    class="form-control login"
+                    type="password"
+                    name="sp_pass"
+                    placeholder="Password.."
+                  />
+                  <input
+                    @click.prevent="login"
+                    class="btn"
+                    type="submit"
+                    name="submit"
+                    value="login"
+                    style="background-color:#f5dd7b; float: right;"
+                  />
+                </form>
+              </div>
+            </li>
+            <li v-if="isLogin" key="true">
+              <a
+                @click.prevent="logout"
+                style=" text-decoration: none;color: white"
+                href="#"
+                >Logout</a
+              >
+            </li>
+          </transition>
         </ul>
       </nav>
 
@@ -69,17 +118,24 @@
               <result-card :i="card.image" :m="card.message" :t="card.to"> </result-card>
             </div>
           </div>
+        </div>
       </div>
       <!-- FORM DAN CARD YG DI HTML  -->
-
-
       <div id="ss">
-        <div id='subss'>
-          
+        <div id="subss"></div>
+      </div>
+      <div id="home">
+        <div class="bg-image"></div>
+        <div class="bg-text">
+          <h1 class="py-5">Ramadhan Kareem</h1>
+          <transition name="slide-fade">
+            <button class="ghost-button-full-color" v-if="isLogin">
+              Get Free Card
+            </button>
+          </transition>
         </div>
       </div>
     </div>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -97,6 +153,7 @@
     ></script>
     <script src="components/cardform.js"></script>
     <script src="components/cardresult.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>
