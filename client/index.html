@@ -17,6 +17,10 @@
       href="https://fonts.googleapis.com/css?family=Crimson+Text|Pacifico"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cairo|Lemonada|Reem+Kufi|Tajawal|Aref+Ruqaa"
+      rel="stylesheet"
+    />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -74,9 +78,7 @@
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">
-                    
-                  </h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
                   <button
                     type="button"
                     class="close"
@@ -87,13 +89,12 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                    Idul fitri adalah cahaya harapan
-                    Izinkan untuk rasakan sinarnya hadir untuk kita
-                    Tempat yang membuat jarak tidak dapat berucap kata-kata secara langsung                   
-                    Hanya yang bisa diucapkan melalui kirim pesan        
-                    Maafkan bila memang selama ini banyak salah                   
-                    Dengan adanya kiriman ucapan pesan ini, kami sekeluarga memberi ucapan
-                    Selamat Hari Raya Idul Fitri. 
+                  Idul fitri adalah cahaya harapan Izinkan untuk rasakan
+                  sinarnya hadir untuk kita Tempat yang membuat jarak tidak
+                  dapat berucap kata-kata secara langsung Hanya yang bisa
+                  diucapkan melalui kirim pesan Maafkan bila memang selama ini
+                  banyak salah Dengan adanya kiriman ucapan pesan ini, kami
+                  sekeluarga memberi ucapan Selamat Hari Raya Idul Fitri.
                 </div>
                 <div class="modal-footer">
                   <button
@@ -172,8 +173,39 @@
               <h1 style="letter-spacing: 0px;">Create Your Own Card</h1>
               <input-form v-on:newcard="generatecard"></input-form>
             </div>
-            <div class="col-md-8 mt-4">
+            <div class="col">
+              <!-- DROP DOWN FONT -->
+              <select v-model="fontStyle">
+                <option value="'Aref Ruqaa', serif" selected>Aref Ruqaa</option>
+                <option value="'Reem Kufi', sans-serif">Reem Kufi</option>
+                <option value="'Lemonada', cursive">Lemonada</option>
+                <option value="'Cairo', sans-serif">Cairo</option>
+                <option value="'Tajawal', sans-serif">Tajawal</option>
+              </select>
+              <!-- INPUT STYLING FONT -->
+              <label for="">Your Message</label>
+              <input type="text" name="" v-model="text" />
+              <label for="">Y Axis Position</label>
+              <input type="number" name="" v-model="top" />
+              <label for="">X Axis Position</label>
+              <input type="number" name="" v-model="right" />
+              <label for="">Container Width</label>
+              <input type="number" name="" v-model="width" />
+              <label for="">Container Height</label>
+              <input type="number" name="" v-model="height" />
+              <label for="">Font Size</label>
+              <input type="number" name="" v-model="fontSize" />
+              <label for="head">Text</label>
+              <input type="color" v-model="textColor" />
+            </div>
+            <div class="col-md-8 mt-4" v-bind:style="{ color: textColor }">
               <result-card :i="card.image" :m="card.message" :t="card.to">
+                <h1
+                  v-bind:style="{ top:top + 'px', right:right + 'px', width:width  + 'px', height:height + 'px', fontFamily: fontStyle, fontSize: fontSize + 'px' }"
+                  style="position: relative"
+                >
+                  {{ text }}
+                </h1>
               </result-card>
 
               <!-- FORM DAN CARD YG DI HTML  -->

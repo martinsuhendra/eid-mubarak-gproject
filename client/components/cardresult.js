@@ -1,14 +1,13 @@
 Vue.component('result-card', {
-  props : ["i", "m", "t"],
-  data : function(){
+  props: ["i", "m", "t"],
+  data: function () {
     return {
-
     }
   },
-  methods : {
-    screenshot(){
+  methods: {
+    screenshot() {
       console.log("screenshot layar")
-      html2canvas(document.getElementById('canvas')).then( (canvas) => {
+      html2canvas(document.getElementById('canvas')).then((canvas) => {
         var base64URL = canvas.toDataURL('image/png')
         console.log(base64URL)
         // axios.
@@ -26,7 +25,7 @@ Vue.component('result-card', {
       });
     },
   },
-  template : `
+  template: `
   <div>
     <div class="box" id="canvas" style="background-image : url('i');">
       <div class="container">
@@ -35,7 +34,9 @@ Vue.component('result-card', {
           {{t}}
         </h1>
         <br>
-        <p id="message" class="text-right">
+        <p id="message" class="text-right"
+        <slot>
+        </slot>
           {{m}}
         </p>
       </div>
