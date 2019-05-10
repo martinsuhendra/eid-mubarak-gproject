@@ -175,3 +175,43 @@ p {
   transform: translateX(10px);
   opacity: 0;
 }
+
+.outlined {
+  text-shadow: 0px 0px 0.1px black, -0px 0px 0.1px black, -0px -0px 0.1px black, 0px -0px 0.1px black, 0px 1px 0.1px black, -0px 1px 0.1px black, -0px -1px 0.1px black, 0px -1px 0.1px black, 0px 2px 0.1px black, -0px 2px 0.1px black, -0px -2px 0.1px black, 0px -2px 0.1px black, 1px 0px 0.1px black, -1px 0px 0.1px black, -1px -0px 0.1px black, 1px -0px 0.1px black, 1px 1px 0.1px black, -1px 1px 0.1px black, -1px -1px 0.1px black, 1px -1px 0.1px black, 1px 2px 0.1px black, -1px 2px 0.1px black, -1px -2px 0.1px black, 1px -2px 0.1px black, 2px 0px 0.1px black, -2px 0px 0.1px black, -2px -0px 0.1px black, 2px -0px 0.1px black, 2px 1px 0.1px black, -2px 1px 0.1px black, -2px -1px 0.1px black, 2px -1px 0.1px black, 2px 2px 0.1px black, -2px 2px 0.1px black, -2px -2px 0.1px black, 2px -2px 0.1px black, 0px 0px 0px hsla(0,0%,0%,0);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.engraved {
+  text-shadow: -0px 0px hsla(0,0%,100%,0.0333333333), 0px -0px hsla(0,0%,0%,0.2), -0.5px 0.5px hsla(0,0%,100%,0.0333333333), 0.5px -0.5px hsla(0,0%,0%,0.2), -1px 1px hsla(0,0%,100%,0.0333333333), 1px -1px hsla(0,0%,0%,0.2), -1.5px 1.5px hsla(0,0%,100%,0.0333333333), 1.5px -1.5px hsla(0,0%,0%,0.2), -2px 2px hsla(0,0%,100%,0.0333333333), 2px -2px hsla(0,0%,0%,0.2), 0px 0px 40px hsla(0,0%,100%,0.1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.embossed {
+  text-shadow: -0px 0px hsla(0,0%,0%,0.2), 0px -0px hsla(0,0%,100%,0.2), -0.5px 0.5px hsla(0,0%,0%,0.2), 0.5px -0.5px hsla(0,0%,100%,0.2), -1px 1px hsla(0,0%,0%,0.2), 1px -1px hsla(0,0%,100%,0.2), -1.5px 1.5px hsla(0,0%,0%,0.2), 1.5px -1.5px hsla(0,0%,100%,0.2), 0px 0px 4.5px hsla(0,0%,0%,1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.rainbows {
+  text-shadow: -0.2px 0.2px 0 hsla(7.2, 60%, 45%, 1), -0.4px 0.4px 0 hsla(14.4, 60%, 45%, 1), -0.6px 0.6px 0 hsla(21.6, 60%, 45%, 1), -0.8px 0.8px 0 hsla(28.8, 60%, 45%, 1), -1px 1px 0 hsla(36, 60%, 45%, 1), -1.2px 1.2px 0 hsla(43.2, 60%, 45%, 1), -1.4px 1.4px 0 hsla(50.4, 60%, 45%, 1), -1.6px 1.6px 0 hsla(57.6, 60%, 45%, 1), -1.8px 1.8px 0 hsla(64.8, 60%, 45%, 1), -2px 2px 0 hsla(72, 60%, 45%, 1), -2.2px 2.2px 0 hsla(79.2, 60%, 45%, 1), -2.4px 2.4px 0 hsla(86.4, 60%, 45%, 1), -2.6px 2.6px 0 hsla(93.6, 60%, 45%, 1), -2.8px 2.8px 0 hsla(100.8, 60%, 45%, 1), -3px 3px 0 hsla(108, 60%, 45%, 1), -3.2px 3.2px 0 hsla(115.2, 60%, 45%, 1), -3.4px 3.4px 0 hsla(122.4, 60%, 45%, 1), -3.6px 3.6px 0 hsla(129.6, 60%, 45%, 1), -3.8px 3.8px 0 hsla(136.8, 60%, 45%, 1), -4px 4px 0 hsla(144, 60%, 45%, 1), -4.2px 4.2px 0 hsla(151.2, 60%, 45%, 1), -4.4px 4.4px 0 hsla(158.4, 60%, 45%, 1), -4.6px 4.6px 0 hsla(165.6, 60%, 45%, 1), -4.8px 4.8px 0 hsla(172.8, 60%, 45%, 1), -5px 5px 0 hsla(180, 60%, 45%, 1), -5.2px 5.2px 0 hsla(187.2, 60%, 45%, 1), -5.4px 5.4px 0 hsla(194.4, 60%, 45%, 1), -5.6px 5.6px 0 hsla(201.6, 60%, 45%, 1), -5.8px 5.8px 0 hsla(208.8, 60%, 45%, 1), -6px 6px 0 hsla(216, 60%, 45%, 1), -6.2px 6.2px 0 hsla(223.2, 60%, 45%, 1), -6.4px 6.4px 0 hsla(230.4, 60%, 45%, 1), -6.6px 6.6px 0 hsla(237.6, 60%, 45%, 1), -6.8px 6.8px 0 hsla(244.8, 60%, 45%, 1), -7px 7px 0 hsla(252, 60%, 45%, 1), -7.2px 7.2px 0 hsla(259.2, 60%, 45%, 1), -7.4px 7.4px 0 hsla(266.4, 60%, 45%, 1), -7.6px 7.6px 0 hsla(273.6, 60%, 45%, 1), -7.8px 7.8px 0 hsla(280.8, 60%, 45%, 1), -8px 8px 0 hsla(288, 60%, 45%, 1), -8.2px 8.2px 0 hsla(295.2, 60%, 45%, 1), -8.4px 8.4px 0 hsla(302.4, 60%, 45%, 1), -8.6px 8.6px 0 hsla(309.6, 60%, 45%, 1), -8.8px 8.8px 0 hsla(316.8, 60%, 45%, 1), -9px 9px 0 hsla(324, 60%, 45%, 1), -9.2px 9.2px 0 hsla(331.2, 60%, 45%, 1), -9.4px 9.4px 0 hsla(338.4, 60%, 45%, 1), -9.6px 9.6px 0 hsla(345.6, 60%, 45%, 1), -9.8px 9.8px 0 hsla(352.8, 60%, 45%, 1), -10px 10px 0 hsla(360, 60%, 45%, 1), 0px 0px 0px hsla(0,0%,0%,0);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.stickers {
+  text-shadow: 0px 0px 0px #FFD, -0px 0px 0px #FFD, -0px -0px 0px #FFD, 0px -0px 0px #FFD, 0px 1px 0px #FFD, -0px 1px 0px #FFD, -0px -1px 0px #FFD, 0px -1px 0px #FFD, 0px 2px 0px #FFD, -0px 2px 0px #FFD, -0px -2px 0px #FFD, 0px -2px 0px #FFD, 1px 0px 0px #FFD, -1px 0px 0px #FFD, -1px -0px 0px #FFD, 1px -0px 0px #FFD, 1px 1px 0px #FFD, -1px 1px 0px #FFD, -1px -1px 0px #FFD, 1px -1px 0px #FFD, 1px 2px 0px #FFD, -1px 2px 0px #FFD, -1px -2px 0px #FFD, 1px -2px 0px #FFD, 2px 0px 0px #FFD, -2px 0px 0px #FFD, -2px -0px 0px #FFD, 2px -0px 0px #FFD, 2px 1px 0px #FFD, -2px 1px 0px #FFD, -2px -1px 0px #FFD, 2px -1px 0px #FFD, 2px 2px 0px #FFD, -2px 2px 0px #FFD, -2px -2px 0px #FFD, 2px -2px 0px #FFD, 0px 0px 0px hsla(0,0%,0%,0), -4px 2px 2px black;
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+
+}
+
+.thickness {
+  text-shadow: 0px 1px 0 #4a6868, 0px 2px 0 #405959, 0px 3px 0 #354a4a, 0px 0px 0px hsla(0,0%,0%,0), -4px 4px 6px black;
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.thic {
+  text-shadow: 0 1px 0 rgb(204, 204, 204), 0 2px 0 rgb(201, 201, 201), 0 3px 0 rgb(187, 187, 187), 0 4px 0 rgb(185, 185, 185), 0 5px 0 rgb(170, 170, 170), 0 6px 1px rgba(0, 0, 0, 0.0980392), 0 0 5px rgba(0, 0, 0, 0.0980392), 0 1px 3px rgba(0, 0, 0, 0.298039), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.247059), 0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.14902);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+}

@@ -4,7 +4,8 @@ Vue.component('input-form', {
     return {
       recipient : "",
       message : "",
-      image : ""
+      image : "",
+      dataStyle:"",
     }
   },
   methods : {
@@ -29,10 +30,11 @@ Vue.component('input-form', {
           submit.type = ''
           submit.type = 'file'
         }
-      // }
-    }
+      }
   },
   template : `
+  <div>
+  <h5>1) Please input your background card</h5>
   <form class="form" @submit.prevent="submitInput">
     <div class="form-group">
       <label>Upload a picture</label>
@@ -40,5 +42,6 @@ Vue.component('input-form', {
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  </div>
   `
 })
