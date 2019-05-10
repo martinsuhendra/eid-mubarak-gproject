@@ -10,7 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
-    #canvas {
+      #canvas {
         display: flex;
         justify-content: flex-end;
         background-image: url("");
@@ -52,10 +52,65 @@
         <h1 class="brand"></h1>
         <ul>
           <li>
-            <a class="ml-5" style=" text-decoration: none;color: white" href="#"
+            <a
+              class="ml-5"
+              style=" text-decoration: none;color: white"
+              href="#"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
               >About</a
             >
           </li>
+
+          <!--About Modal-->
+          <div
+            class="modal fade"
+            id="exampleModalLong"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    Idul fitri adalah cahaya harapan
+                    Izinkan untuk rasakan sinarnya hadir untuk kita
+                    Tempat yang membuat jarak tidak dapat berucap kata-kata secara langsung                   
+                    Hanya yang bisa diucapkan melalui kirim pesan        
+                    Maafkan bila memang selama ini banyak salah                   
+                    Dengan adanya kiriman ucapan pesan ini, kami sekeluarga memberi ucapan
+                    Selamat Hari Raya Idul Fitri. 
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <transition name="slide-fade" mode="out-in">
             <li class="dropdown" v-if="!isLogin" key="false">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown"
@@ -71,11 +126,12 @@
                   accept-charset="UTF-8"
                 >
                   <input
-                    id="sp_uname"
+                    id="sp_email"
                     class="form-control login"
                     type="text"
-                    name="sp_uname"
-                    placeholder="Username.."
+                    name="sp_email"
+                    placeholder="Email.."
+                    v-model="email"
                   />
                   <input
                     id="sp_pass"
@@ -83,6 +139,7 @@
                     type="password"
                     name="sp_pass"
                     placeholder="Password.."
+                    v-model="password"
                   />
                   <input
                     @click.prevent="login"
@@ -108,28 +165,36 @@
       </nav>
 
       <!-- FORM DAN CARD YG DI HTML  -->
-      <div class="container-fluid">
+      <div v-if="isLogin && page == 'card'">
+        <div class="container-fluid">
           <div class="row" style="align-items: center;">
             <div class="col-md-4 mt-4">
-              <h1>Create your</h1>
+              <h1 style="letter-spacing: 0px;">Create Your Own Card</h1>
               <input-form v-on:newcard="generatecard"></input-form>
             </div>
             <div class="col-md-8 mt-4">
-              <result-card :i="card.image" :m="card.message" :t="card.to"> </result-card>
+              <result-card :i="card.image" :m="card.message" :t="card.to">
+              </result-card>
+
+              <!-- FORM DAN CARD YG DI HTML  -->
+              <div id="ss">
+                <div id="subss"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- FORM DAN CARD YG DI HTML  -->
-      <div id="ss">
-        <div id="subss"></div>
-      </div>
-      <div id="home">
+      <!-- LANDING PAGE -->
+      <div id="home" v-if="page == 'home'">
         <div class="bg-image"></div>
         <div class="bg-text">
           <h1 class="py-5">Ramadhan Kareem</h1>
           <transition name="slide-fade">
-            <button class="ghost-button-full-color" v-if="isLogin">
+            <button
+              @click.prevent="showCard"
+              class="ghost-button-full-color"
+              v-if="isLogin"
+            >
               Get Free Card
             </button>
           </transition>

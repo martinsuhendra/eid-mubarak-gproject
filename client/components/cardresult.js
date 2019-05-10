@@ -41,7 +41,7 @@ Vue.component('result-card', {
       </div>
     </div>
     <br>
-    <button type="button" class="btn btn-light" @click="screenshot"> Save</button>
+    <button type="button" class="btn btn-primary" @click="screenshot"> Save</button>
   </div>
   `
 })
