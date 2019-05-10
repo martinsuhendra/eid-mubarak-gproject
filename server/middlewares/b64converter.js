@@ -10,6 +10,7 @@ module.exports = function (req, res, next) {
                 msg: 'Internal server Error',
             });
         } else {
+            console.log("di converter")
             req.file = {}
             req.file.buffer = fs.readFileSync(newFilename)
             req.file.originalName = Date.now() + newFilename

@@ -6,6 +6,7 @@ const storage = new Storage({
   projectId: process.env.GCLOUD_PROJECT,
   keyFilename: process.env.KEYFILE_PATH
 })
+
 const bucket = storage.bucket(CLOUD_BUCKET)
 
 const getPublicUrl = (filename) => {
@@ -14,6 +15,7 @@ const getPublicUrl = (filename) => {
 
 const sendUploadToGCS = (req, res, next) => {
   if (!req.file) {
+    console.log("req.file kosong")
     return next()
   }
 
@@ -28,6 +30,7 @@ const sendUploadToGCS = (req, res, next) => {
 
   stream.on('error', (err) => {
     req.file.cloudStorageError = err
+    console.log("createwritestream error")
     next(err)
   })
 
@@ -35,18 +38,20 @@ const sendUploadToGCS = (req, res, next) => {
     req.file.cloudStorageObject = gcsname
     file.makePublic().then(() => {
       req.file.cloudStoragePublicUrl = getPublicUrl(gcsname)
+      console.log("createwritestream ok")
       next()
     })
   })
 
   stream.end(req.file.buffer)
+  console.log("stream end")
 }
 
 const Multer = require('multer'),
       multer = Multer({
         storage: Multer.MemoryStorage,
         limits: {
-          fileSize: 5 * 1024 * 1024
+          fileSize: 100 * 1024 * 1024
         }
         // dest: '../images'
       })

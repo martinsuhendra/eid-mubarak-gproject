@@ -31,11 +31,16 @@ router.post(
     sendUploadToGCS,
 
     (req, res, next) => {
-        if (req.file && req.file.gcsUrl) {
+        if (req.file) {
             // kirim url ke client
-            return res.send(req.file.gcsUrl);
+            console.log(req.file.cloudStoragePublicUrl)
+            console.log("sampai disini")
+            let a = req.file.cloudStoragePublicUrl.toString()
+            console.log(a)
+            res.status(200).json(a);
+        } else {
+            res.status(500).send('Unable to upload');
         }
-        return res.status(500).send('Unable to upload');
     },
 );
 

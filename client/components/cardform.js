@@ -45,17 +45,3 @@ Vue.component('input-form', {
   </div>
   `
 })
-
-Vue.component('result', {
-  props : [],
-  data : function(){
-    return {
-      to : "",
-      text : "",
-      url : ""
-    }
-  },
-  template : `
-  
-  `
-})

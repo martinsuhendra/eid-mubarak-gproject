@@ -7,11 +7,14 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const routes = require('./routes');
 const morgan = require('morgan');
+var bodyParser = require("body-parser");
 
 
 mongoose.connect('mongodb://localhost/kartu-lebaran', { useNewUrlParser: true })
 app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: false }))
+
+app.use(bodyParser.json({limit: '1mb'}));
 app.use(express.json())
 app.use(cors())
 
