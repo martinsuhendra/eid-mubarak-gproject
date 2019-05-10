@@ -62,56 +62,11 @@
               href="#"
               data-toggle="modal"
               data-target="#exampleModalLong"
-              >About</a
+              >Kartu<span style="color:crimson">Ilahi</span></a
             >
           </li>
 
           <!--About Modal-->
-          <div
-            class="modal fade"
-            id="exampleModalLong"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLongTitle"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  Idul fitri adalah cahaya harapan Izinkan untuk rasakan
-                  sinarnya hadir untuk kita Tempat yang membuat jarak tidak
-                  dapat berucap kata-kata secara langsung Hanya yang bisa
-                  diucapkan melalui kirim pesan Maafkan bila memang selama ini
-                  banyak salah Dengan adanya kiriman ucapan pesan ini, kami
-                  sekeluarga memberi ucapan Selamat Hari Raya Idul Fitri.
-                </div>
-                <div class="modal-footer">
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Save changes
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <transition name="slide-fade" mode="out-in">
             <li class="dropdown" v-if="!isLogin" key="false">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown"
@@ -169,40 +124,82 @@
       <div v-if="isLogin && page == 'card'">
         <div class="container-fluid">
           <div class="row" style="align-items: center;">
-            <div class="col-md-4 mt-4">
-              <h1 style="letter-spacing: 0px;">Create Your Own Card</h1>
-              <input-form v-on:newcard="generatecard"></input-form>
-            </div>
             <div class="col">
+            
+              <h1 style="letter-spacing: 0px;" class="mt-4 text-center">Create Your Own Card</h1>
+              <br>
+              <input-form v-on:newcard="generatecard"></input-form>
+              <br>
+
               <!-- DROP DOWN FONT -->
-              <select v-model="fontStyle">
-                <option value="'Aref Ruqaa', serif" selected>Aref Ruqaa</option>
-                <option value="'Reem Kufi', sans-serif">Reem Kufi</option>
-                <option value="'Lemonada', cursive">Lemonada</option>
-                <option value="'Cairo', sans-serif">Cairo</option>
-                <option value="'Tajawal', sans-serif">Tajawal</option>
+              <h5>2) Please choose or adjust your style</h5>
+              <label>Select Style</label>
+              <select v-model="fontStyle" class="custom-select">
+                <option value="'Aref Ruqaa', serif" selected>Aref Ruqaa (Arabic)</option>
+                <option value="'Reem Kufi', sans-serif">Reem Kufi(Arabic)</option>
+                <option value="'Lemonada', cursive">Lemonada(Arabic)</option>
+                <option value="'Cairo', sans-serif">Cairo(Arabic)</option>
+                <option value="'Tajawal', sans-serif">Tajawal(Arabic)</option>
+                <option value="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="dropdown-item" href="#">'Franklin Gothic Medium'</option>
+                <option value="'Courier New', Courier, monospace" class="dropdown-item" href="#">'Courier New'</option>
+                <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif" class="dropdown-item" href="#">'Lucida Sans'</option>
+                <option value="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="dropdown-item" href="#">'Segoe UI'</option>
+                <option value="'Times New Roman', Times, serif" class="dropdown-item" href="#">'Times New Roman'</option>
+                <option value="'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" class="dropdown-item" href="#">'Trebuchet MS'</option>
+                <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif" class="dropdown-item" href="#">-apple-system</option>
+                <option value="Arial, Helvetica, sans-serif" class="dropdown-item" href="#">Arial</option>
+                <option value="Cambria, Cochin, Georgia, Times, 'Times New Roman', serif" class="dropdown-item" href="#">Cambria</option>
+                <option value="Georgia, 'Times New Roman', Times, serif" class="dropdown-item" href="#">Georgia</option>
+                <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif" class="dropdown-item" href="#">Impact</option>
+                <option value="Verdana, Geneva, Tahoma, sans-serif" class="dropdown-item" href="#">Verdana</option>
+              </select>
+
+              <label class="mt-3" for="">Your Message</label><br>
+              <input class="form-control" type="text" name="" v-model="text"/>
+
+              <!-- <label class="mt-3" for="">Your Message</label><br>
+              <input class="form-control" type="text" name="" v-model="text"/> -->
+
+              <label class="mt-3">Select Effect</label>
+              <select v-model="styling" class="custom-select">
+                  <option value="outlined">Outlined</option>
+                  <option value="engraved">Engraved</option>
+                  <option value="embossed">Embossed</option>
+                  <option value="rainbows">Rainbows</option>
+                  <option value="stickers">Stickers</option>
+                  <option value="thickness">Thickness</option>
+                  <option value="thic">3D</option>
               </select>
               <!-- INPUT STYLING FONT -->
-              <label for="">Your Message</label>
-              <input type="text" name="" v-model="text" />
-              <label for="">Y Axis Position</label>
-              <input type="number" name="" v-model="top" />
-              <label for="">X Axis Position</label>
-              <input type="number" name="" v-model="right" />
-              <label for="">Container Width</label>
-              <input type="number" name="" v-model="width" />
-              <label for="">Container Height</label>
-              <input type="number" name="" v-model="height" />
-              <label for="">Font Size</label>
-              <input type="number" name="" v-model="fontSize" />
-              <label for="head">Text</label>
-              <input type="color" v-model="textColor" />
+           
+              <div class="d-flex mt-3">
+                <label class="col-sm-3 my-1" for="">Y Axis Position</label>
+                <input class="form-control" type="number" name="" v-model="top" /><br>
+                <label class="col-sm-3 my-1" for="">X Axis Position</label>
+                <input class="form-control" type="number" name="" v-model="right" /><br>
+              </div>
+              <hr>
+              <div class="d-flex">
+                <label class="col-sm-3 my-1" for="">Container Width</label>
+                <input class="form-control" type="number" name="" v-model="width" /><br>
+                <label class="col-sm-3 my-1" for="">Container Height</label>
+                <input class="form-control" type="number" name="" v-model="height" /><br>
+              </div>
+              <hr>
+              <div class="d-flex">
+                <label class="col-sm-3 my-1" for="">Font Size</label>
+                <input class="form-control" type="number" name="" v-model="fontSize" /><br>
+                <label class="col-sm-3 my-1" for="head">Text</label>
+                <input class="form-control" type="color" v-model="textColor" />
+              </div>
             </div>
             <div class="col-md-8 mt-4" v-bind:style="{ color: textColor }">
+              <h1 class="text-center" style="letter-spacing:0px; color: black !important">Card Preview</h1>
               <result-card :i="card.image" :m="card.message" :t="card.to">
                 <h1
                   v-bind:style="{ top:top + 'px', right:right + 'px', width:width  + 'px', height:height + 'px', fontFamily: fontStyle, fontSize: fontSize + 'px' }"
                   style="position: relative"
+                  v-bind:class="styling"
                 >
                   {{ text }}
                 </h1>
@@ -220,7 +217,11 @@
       <div id="home" v-if="page == 'home'">
         <div class="bg-image"></div>
         <div class="bg-text">
-          <h1 class="py-5">Ramadhan Kareem</h1>
+          <p class="py-5" style="letter-spacing:1px;font-size:12px;"><i><q>Andai jemari tak sempat berjabat.
+              Jika raga tak bisa bersua.
+              Bila Ada kata membekas luka.
+              Semoga pintu maaf masih terbuka.</q><br><br>
+              Selamat Idul Fitri 1440 H</i></p>
           <transition name="slide-fade">
             <button
               @click.prevent="showCard"
