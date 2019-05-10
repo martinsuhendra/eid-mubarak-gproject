@@ -52,10 +52,65 @@
         <h1 class="brand"></h1>
         <ul>
           <li>
-            <a class="ml-5" style=" text-decoration: none;color: white" href="#"
+            <a
+              class="ml-5"
+              style=" text-decoration: none;color: white"
+              href="#"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
               >About</a
             >
           </li>
+
+          <!--About Modal-->
+          <div
+            class="modal fade"
+            id="exampleModalLong"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLongTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">
+                    
+                  </h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    Idul fitri adalah cahaya harapan
+                    Izinkan untuk rasakan sinarnya hadir untuk kita
+                    Tempat yang membuat jarak tidak dapat berucap kata-kata secara langsung                   
+                    Hanya yang bisa diucapkan melalui kirim pesan        
+                    Maafkan bila memang selama ini banyak salah                   
+                    Dengan adanya kiriman ucapan pesan ini, kami sekeluarga memberi ucapan
+                    Selamat Hari Raya Idul Fitri. 
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <transition name="slide-fade" mode="out-in">
             <li class="dropdown" v-if="!isLogin" key="false">
               <a class="dropdown-toggle" href="#" data-toggle="dropdown"
@@ -114,7 +169,7 @@
         <div class="container-fluid">
           <div class="row" style="align-items: center;">
             <div class="col-md-4 mt-4">
-              <h1>Create your</h1>
+              <h1 style="letter-spacing: 0px;">Create Your Own Card</h1>
               <input-form v-on:newcard="generatecard"></input-form>
             </div>
             <div class="col-md-8 mt-4">
@@ -126,24 +181,23 @@
                 <div id="subss"></div>
               </div>
             </div>
-
-            <!-- LANDING PAGE -->
-            <div id="home" v-if="page == 'home'">
-              <div class="bg-image"></div>
-              <div class="bg-text">
-                <h1 class="py-5">Ramadhan Kareem</h1>
-                <transition name="slide-fade">
-                  <button
-                    @click.prevent="showCard"
-                    class="ghost-button-full-color"
-                    v-if="isLogin"
-                  >
-                    Get Free Card
-                  </button>
-                </transition>
-              </div>
-            </div>
           </div>
+        </div>
+      </div>
+      <!-- LANDING PAGE -->
+      <div id="home" v-if="page == 'home'">
+        <div class="bg-image"></div>
+        <div class="bg-text">
+          <h1 class="py-5">Ramadhan Kareem</h1>
+          <transition name="slide-fade">
+            <button
+              @click.prevent="showCard"
+              class="ghost-button-full-color"
+              v-if="isLogin"
+            >
+              Get Free Card
+            </button>
+          </transition>
         </div>
       </div>
     </div>
