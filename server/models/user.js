@@ -3,10 +3,7 @@ const { Schema } = mongoose;
 const { encrypt } = require('../helpers/bcrypt');
 
 const UserSchema = new Schema({
-    name: {
-        type: String,
-        required: [true, 'Name is required']
-    },
+  
     email: {
         type: String,
         required: [true, 'Email is required'],

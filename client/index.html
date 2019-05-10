@@ -10,7 +10,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="style/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
-    #canvas {
+      #canvas {
         display: flex;
         justify-content: flex-end;
         background-image: url("");
@@ -71,11 +71,12 @@
                   accept-charset="UTF-8"
                 >
                   <input
-                    id="sp_uname"
+                    id="sp_email"
                     class="form-control login"
                     type="text"
-                    name="sp_uname"
-                    placeholder="Username.."
+                    name="sp_email"
+                    placeholder="Email.."
+                    v-model="email"
                   />
                   <input
                     id="sp_pass"
@@ -83,6 +84,7 @@
                     type="password"
                     name="sp_pass"
                     placeholder="Password.."
+                    v-model="password"
                   />
                   <input
                     @click.prevent="login"
@@ -108,31 +110,40 @@
       </nav>
 
       <!-- FORM DAN CARD YG DI HTML  -->
-      <div class="container-fluid">
+      <div v-if="isLogin && page == 'card'">
+        <div class="container-fluid">
           <div class="row" style="align-items: center;">
             <div class="col-md-4 mt-4">
               <h1>Create your</h1>
               <input-form v-on:newcard="generatecard"></input-form>
             </div>
             <div class="col-md-8 mt-4">
-              <result-card :i="card.image" :m="card.message" :t="card.to"> </result-card>
+              <result-card :i="card.image" :m="card.message" :t="card.to">
+              </result-card>
+
+              <!-- FORM DAN CARD YG DI HTML  -->
+              <div id="ss">
+                <div id="subss"></div>
+              </div>
+            </div>
+
+            <!-- LANDING PAGE -->
+            <div id="home" v-if="page == 'home'">
+              <div class="bg-image"></div>
+              <div class="bg-text">
+                <h1 class="py-5">Ramadhan Kareem</h1>
+                <transition name="slide-fade">
+                  <button
+                    @click.prevent="showCard"
+                    class="ghost-button-full-color"
+                    v-if="isLogin"
+                  >
+                    Get Free Card
+                  </button>
+                </transition>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- FORM DAN CARD YG DI HTML  -->
-      <div id="ss">
-        <div id="subss"></div>
-      </div>
-      <div id="home">
-        <div class="bg-image"></div>
-        <div class="bg-text">
-          <h1 class="py-5">Ramadhan Kareem</h1>
-          <transition name="slide-fade">
-            <button class="ghost-button-full-color" v-if="isLogin">
-              Get Free Card
-            </button>
-          </transition>
         </div>
       </div>
     </div>
