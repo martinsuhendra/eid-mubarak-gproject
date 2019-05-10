@@ -18,7 +18,8 @@ var app = new Vue({
     fontStyle: "'Aref Ruqaa', serif",
     fontSize: 16,
     text: '',
-    textColor: '#000000'
+    textColor: '#000000',
+    styling: ''
   },
   methods: {
     generatecard(el) {
