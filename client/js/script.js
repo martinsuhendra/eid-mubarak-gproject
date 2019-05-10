@@ -3,13 +3,10 @@ const baseURL = 'http://localhost:3000'
 var app = new Vue({
     el: '#app',
     data: {
-      image: '',
-      message : "",
-      to : ""
+      card : ""
     },
     methods: {
       generatecard(el){
-        // kirim gambar ke server
         var file = el.image;
         var reader = new FileReader();
         reader.onloadend = function () {
@@ -18,10 +15,11 @@ var app = new Vue({
         if (file) {
             reader.readAsDataURL(file);
         }
-        let recipient = document.getElementById('recipient')
-        let message = document.getElementById('message')
-        recipient.innerHTML = "To dearest, " + el.to;
-        message.innerHTML = `"${el.text}"`
+        this.card = {
+          to : el.to,
+          message : el.text,
+          image : reader.result
+        }
       }
     },
     events: {

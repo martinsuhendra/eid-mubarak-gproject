@@ -10,17 +10,18 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css?family=Crimson+Text|Pacifico"
       rel="stylesheet"
     />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style/style.css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
-      #canvas {
+    #canvas {
         display: flex;
         justify-content: flex-end;
         background-image: url("");
@@ -108,19 +109,13 @@
 
       <!-- FORM DAN CARD YG DI HTML  -->
       <div class="container-fluid">
-        <div class="row" style="align-items: center;">
-          <div class="col-md-4 mt-4">
-            <h1>Create your</h1>
-            <input-form v-on:newcard="generatecard"></input-form>
-          </div>
-          <div class="col-md-8 mt-4">
-            <div class="box" id="canvas">
-              <div class="container">
-                <br />
-                <h1 id="recipient" class="text-right"></h1>
-                <br />
-                <p id="message" class="text-right"></p>
-              </div>
+          <div class="row" style="align-items: center;">
+            <div class="col-md-4 mt-4">
+              <h1>Create your</h1>
+              <input-form v-on:newcard="generatecard"></input-form>
+            </div>
+            <div class="col-md-8 mt-4">
+              <result-card :i="card.image" :m="card.message" :t="card.to"> </result-card>
             </div>
           </div>
         </div>
@@ -141,7 +136,6 @@
         </div>
       </div>
     </div>
-
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -158,6 +152,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="components/cardform.js"></script>
+    <script src="components/cardresult.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="js/script.js"></script>
   </body>
